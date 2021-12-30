@@ -1,1 +1,1 @@
-# Profiles API project 0.1
+# Profiles API project
