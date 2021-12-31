@@ -33,8 +33,6 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
     """Database model for users in the system"""
     email = models.EmailField(max_length=60, unique=True)
     name = models.CharField(max_length=60)
-    date_joined = models.DateTimeField(
-        verbose_name="date joined", auto_now_true=True)  # always be the fist time
     last_login = models.DateTimeField(
         verbose_name="last login", auto_now=True)  # always be the latest time
     is_active = models.BooleanField(default=True)
