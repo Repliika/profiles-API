@@ -29,7 +29,7 @@ $PROJECT_BASE_PATH/env/bin/python manage.py migrate
 $PROJECT_BASE_PATH/env/bin/python manage.py collectstatic --noinput
 
 # Configure supervisor
-cp $PROJECT_BASE_PATH/deploy/supervisor_profiles_api.conf /etc/supervisor/conf.d/profiles_app.conf
+cp $PROJECT_BASE_PATH/deploy/supervisor_profiles.conf /etc/supervisor/conf.d/profiles_app.conf
 supervisorctl reread
 supervisorctl update
 supervisorctl restart profiles_app
