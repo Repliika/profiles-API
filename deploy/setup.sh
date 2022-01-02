@@ -29,15 +29,15 @@ $PROJECT_BASE_PATH/env/bin/python manage.py migrate
 $PROJECT_BASE_PATH/env/bin/python manage.py collectstatic --noinput
 
 # Configure supervisor
-cp $PROJECT_BASE_PATH/deploy/supervisor_profiles.conf /etc/supervisor/conf.d/profiles_app.conf
+cp $PROJECT_BASE_PATH/deploy/supervisor_profiles.conf /etc/supervisor/conf.d/profilesAPI.conf
 supervisorctl reread
 supervisorctl update
-supervisorctl restart profiles_app
+supervisorctl restart profilesAPI
 
 # Configure nginx
-cp $PROJECT_BASE_PATH/deploy/nginx_profiles.conf /etc/nginx/sites-available/profiles_app.conf
+cp $PROJECT_BASE_PATH/deploy/nginx_profiles.conf /etc/nginx/sites-available/profilesAPI.conf
 rm /etc/nginx/sites-enabled/default
-ln -s /etc/nginx/sites-available/profiles_app.conf /etc/nginx/sites-enabled/profiles_app.conf
+ln -s /etc/nginx/sites-available/profilesAPI.conf /etc/nginx/sites-enabled/profilesAPI.conf
 systemctl restart nginx.service
 
 echo "nginx configured!"
